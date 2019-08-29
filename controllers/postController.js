@@ -27,7 +27,7 @@ const getPostById = async (req, res, next) => {
 
 const addNewPost = async (req, res, next) => {
   const { body } = req;
-  const { title, content, created_at, author, author_email } = body;
+  const { title, content, author, author_email } = body;
 
   const sql = `insert into posts set ?`;
 
@@ -35,7 +35,6 @@ const addNewPost = async (req, res, next) => {
     const data = await makeQuery(sql, {
       title,
       content,
-      created_at,
       author,
       author_email,
     });
